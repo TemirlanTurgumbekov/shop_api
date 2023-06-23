@@ -30,7 +30,7 @@ class CustomUser(AbstractUser):
         return f'{self.email}'
 
     def create_activation_code(self):
-        code = str(uuid4)
+        code = str(uuid4())
         self.activation_code = code
 
 
