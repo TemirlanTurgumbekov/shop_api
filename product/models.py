@@ -18,7 +18,8 @@ class Product(models.Model):
     description = RichTextField()
     category = models.ForeignKey(Category, on_delete=models.RESTRICT, related_name='products')
     image = models.ImageField(upload_to='images')
-    price = models.CharField(choices=STATUS_CHOICES, max_length=50)
+    price = models.DecimalField(decimal_places=2, max_digits=9)
+    stock = models.CharField(choices=STATUS_CHOICES, max_length=50, default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
